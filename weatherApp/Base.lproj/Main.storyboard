@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Nn2-hS-XZv">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MAPVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MAPVC" customModule="weatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3Ts-az-9WX">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3Ts-az-9WX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="O8g-Fo-nvw"/>
+                            <constraint firstAttribute="bottom" secondItem="3Ts-az-9WX" secondAttribute="bottom" id="Otd-Mh-MeM"/>
+                            <constraint firstItem="3Ts-az-9WX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Umv-82-1mS"/>
+                            <constraint firstItem="3Ts-az-9WX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="of1-lV-zIc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Cd-eX-0RO"/>
+                    <connections>
+                        <outlet property="viewMap" destination="3Ts-az-9WX" id="ifT-I4-mml"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="128.57142857142856"/>
+        </scene>
+        <!--Weather DetailsVC-->
+        <scene sceneID="zWZ-jq-zWo">
+            <objects>
+                <viewController storyboardIdentifier="WeatherDetailsVC" id="tdn-74-clk" customClass="WeatherDetailsVC" customModule="weatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T46-L9-EAc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Ho-dx-3Hk">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Mat-rf-mTq">
+                                <rect key="frame" x="172" y="418" width="70" height="70"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="PpH-B5-9m9"/>
+                                    <constraint firstAttribute="height" constant="70" id="gp7-zK-Nkz"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="3Ho-dx-3Hk" secondAttribute="bottom" id="0YZ-r0-JSY"/>
+                            <constraint firstItem="3Ho-dx-3Hk" firstAttribute="top" secondItem="T46-L9-EAc" secondAttribute="top" id="ECY-zg-Ojl"/>
+                            <constraint firstItem="3Ho-dx-3Hk" firstAttribute="trailing" secondItem="l7E-xt-3eb" secondAttribute="trailing" id="dgg-YR-JTv"/>
+                            <constraint firstItem="3Ho-dx-3Hk" firstAttribute="leading" secondItem="l7E-xt-3eb" secondAttribute="leading" id="oEX-Kf-XWB"/>
+                            <constraint firstItem="Mat-rf-mTq" firstAttribute="centerY" secondItem="l7E-xt-3eb" secondAttribute="centerY" id="pLP-BE-qAR"/>
+                            <constraint firstItem="Mat-rf-mTq" firstAttribute="centerX" secondItem="l7E-xt-3eb" secondAttribute="centerX" id="x7P-Di-gho"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="l7E-xt-3eb"/>
+                    </view>
+                    <connections>
+                        <outlet property="loader" destination="Mat-rf-mTq" id="opF-To-740"/>
+                        <outlet property="viewTable" destination="3Ho-dx-3Hk" id="1AB-SG-tMb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IEu-VB-Ozg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1756.521739130435" y="128.57142857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qhP-eM-Icl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Nn2-hS-XZv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tcd-ey-5w1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hA0-rT-Pn2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nKN-ve-cxI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="128.57142857142856"/>
+        </scene>
+    </scenes>
+</document>
